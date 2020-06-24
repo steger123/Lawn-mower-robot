@@ -1,9 +1,10 @@
 # Lawn-mower-robot
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/openLogo.png)
 
-## As of now (June 2020) we are on the beggining of the Project.
+## As of now (June 2020) we are on the beginning of the Project.
 
-As the first step variouse concept prposlas are requried frm the team
+The aim is to design a lawnmower robot based on design proposals.
+As the first step various concept proposals are required from the team.
 
 ## Body:
 Max size 600x400 mm. Weight: max. 10 kg.
@@ -12,29 +13,28 @@ Max size 600x400 mm. Weight: max. 10 kg.
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/concept_body.jpg)
 
 ## Driven Wheels:
-Size: 10-13 inch. Weight: max. 500 g/pc
+Size: 8-13 inch. Weight: max. 500 g/pc
 1.	How many wheels required ?
 
 ## Not driven wheels:
-Size: 10-13 inch. Weight: max. 500 g/pc
+Size: 8-13 inch. Weight: max. 500 g/pc
 1.	How many wheels required ?
 2.	Caster wheel or fixed ?
 
 ## Engine/motor:
 Weight: max. 1000 g/pc
 1. Used DC or AC motors ?
-2. Use HUB motor or brused DC or brush less ?
+2. Use HUB motor or brushed DC or brush less ?
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/concept_motor.jpg)
 
 ## Transmission:
 Size: max. 200x100 mm. Weight: max. 1 kg/pc
 How to solve the PRM reduction ?
-A.  Gear box with timing spokets and belt ?
+A.  Gear box with timing sprockets and belt ?
 B.  Worm gearbox ?
 C.  Spur gearbox ?
 D.  Bevel gearbox ?
-E.  Cycloid gerabox ?
-
+E.  Cycloid gearbox ?
 
 ## Electronic:
 1.  Jetson Nano

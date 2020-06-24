@@ -6,8 +6,8 @@ Project parameters:
 ## Body:
 1. Size: approx. 600x400mm
 2. Weight: max 20 kg.
-3. Material: 20x20 aluminum profiles for less weight and veracity.
-https://robokits.co.in/mechanical-parts/aluminium-profile-accessories/black-anodized-industrial-aluminum-alloy-4040h-profile?gclid=CjwKCAjw88v3BRBFEiwApwLevfWxNL1YgdU-0mq4RFQxTt5-s4eatn0PtOlLGgo-W0jei1Gbp_ecFhoCVDgQAvD_BwE
+3. Material: 20x20 aluminum profiles for less weight and versatility.
+https://robokits.co.in/mechanical-parts/aluminium-profile-accessories/black-anodized-industrial-aluminum-alloy-2020b-profile
 
 
 ## Driven Wheels (2 pcs):
@@ -34,4 +34,4 @@ https://odriverobotics.com/shop/odrive-v36
 ## Software:
 1. Python
 2. TensorFlow, PyTorch
-The software have to ensure object recognition, obstacle avidance and rout planning.
+The software have to ensure object recognition, obstacle avoidance and route planning.

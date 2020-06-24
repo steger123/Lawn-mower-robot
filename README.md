@@ -36,3 +36,6 @@ https://odriverobotics.com/shop/odrive-v36
 1. Python
 2. TensorFlow, PyTorch
 The software have to ensure object recognition, obstacle avoidance and route planning.
+
+## Colaboration:
+If You like to join, please contact me.

@@ -1,7 +1,8 @@
 # Lawn-mower-robot
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/openLogo.png)
+![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/weeding%20robot%20small.jpg)
 
-Project parameters:
+## Project parameters:
 
 ## Body:
 1. Size: approx. 600x400mm
@@ -35,3 +36,6 @@ https://odriverobotics.com/shop/odrive-v36
 1. Python
 2. TensorFlow, PyTorch
 The software have to ensure object recognition, obstacle avoidance and route planning.
+
+## Colaboration:
+If You like to join, please contact me.

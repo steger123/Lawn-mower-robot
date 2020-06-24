@@ -1,5 +1,6 @@
 # Lawn-mower-robot
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/openLogo.png)
+![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/weeding%20robot%20small.jpg)
 
 Project parameters:
 

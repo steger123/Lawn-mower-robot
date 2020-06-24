@@ -8,6 +8,7 @@ As the first step variouse concept prposlas are requried frm the team
 ## Body:
 Max size 600x400 mm. Weight: max. 10 kg.
 1. What the shape, layout looks like?
+
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/concept_body.jpg)
 
 ## Driven Wheels:
@@ -23,7 +24,7 @@ Size: 10-13 inch. Weight: max. 500 g/pc
 Weight: max. 1000 g/pc
 1. Used DC or AC motors ?
 2. Use HUB motor or brused DC or brush less ?
-![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/concept_motors.jpg)
+![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/concept_motor.jpg)
 
 ## Transmission:
 1.	Gear box with timing spokets and belt.

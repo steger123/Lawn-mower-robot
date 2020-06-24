@@ -27,15 +27,20 @@ Weight: max. 1000 g/pc
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/concept_motor.jpg)
 
 ## Transmission:
-1.	Gear box with timing spokets and belt.
-2.  Worm gearbox ?
-3.  Spur gearbox ?
-3.  bevel gearbox ?
+Size: max. 200x100 mm. Weight: max. 1 kg/pc
+How to solve the PRM reduction ?
+A.  Gear box with timing spokets and belt ?
+B.  Worm gearbox ?
+C.  Spur gearbox ?
+D.  Bevel gearbox ?
+E.  Cycloid gerabox ?
+
 
 ## Electronic:
-1.	Jetson Nano
-2.  Camera
-3.	Route planning: GPS and real kinematics
+1.  Jetson Nano
+2.  Motor controller
+2.  Raspberry pi v2 Camera or better
+3.  Route planning: GPS and real kinematics
 
 ## Software:
 1. Python

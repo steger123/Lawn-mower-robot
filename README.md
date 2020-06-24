@@ -9,11 +9,11 @@ As the first step variouse concept prposlas are requried frm the team
 Max size 600x400 mm. Weight: max. 10 kg.
 1. What the shape, layout looks like?
 
-## Driven Wheels (2 pcs):
+## Driven Wheels:
 Size: 10-13 inch. Weight: max. 500 g/pc
 1.	How many wheels required ?
 
-## Not driven wheels (2 pcs):
+## Not driven wheels:
 Size: 10-13 inch. Weight: max. 500 g/pc
 1.	How many wheels required ?
 2.	Caster wheel or fixed ?

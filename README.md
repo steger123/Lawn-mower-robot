@@ -1,31 +1,33 @@
 # Lawn-mower-robot
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/openLogo.png)
-![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/weeding%20robot%20small.jpg)
 
-## Project parameters:
+## As of now (June 2020) we are on the beggining of the Project.
+
+As the first step variouse concept prposlas are requried frm the team
 
 ## Body:
-1. Size: approx. 600x400mm
-2. Total weight: max 20 kg.
-3. Material: 20x20 aluminum profiles for less weight and versatility.
-https://robokits.co.in/mechanical-parts/aluminium-profile-accessories/black-anodized-industrial-aluminum-alloy-2020b-profile
-4.	Design platform: in AutoCAD Fusion 360
+Max size 600x400 mm. Weight: max. 10 kg.
+1. What the shape, layout looks like?
 
 ## Driven Wheels (2 pcs):
-1.	Size: 10-13 inch
-2.	Weight: max. 500 g/pc
-3.	Material: 3D printed from PETG (PLA have less strength & fatigue).
-4.	Design platform: in AutoCAD Fusion 360
+Size: 10-13 inch. Weight: max. 500 g/pc
+1.	How many wheels required ?
 
 ## Not driven wheels (2 pcs):
-1.	Caster wheel.
+Size: 10-13 inch. Weight: max. 500 g/pc
+1.	How many wheels required ?
+2.	Caster wheel or fixed ?
+
+## Engine/motor:
+Weight: max. 1000 g/pc
+1. Used DC or AC motors ?
+2. Use HUB motor or brused DC or brush less ?
 
 ## Transmission:
-1.	Motor: 2 pcs ODrive with encoder (DUAL SHAFT MOTOR - D6374 150KV)
-https://odriverobotics.com/shop/odrive-custom-motor-d6374-150kv
-2.	Motor Driver: 1pcs ODrive v3.6
-https://odriverobotics.com/shop/odrive-v36
-3.	Gear box with timing spokets and belt.
+1.	Gear box with timing spokets and belt.
+2.  Worm gearbox ?
+3.  Spur gearbox ?
+3.  bevel gearbox ?
 
 ## Electronic:
 1.	Jetson Nano

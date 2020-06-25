@@ -23,3 +23,6 @@ https://www.boschrexroth.com/en/xc/products/product-groups/assembly-technology/b
 Select the left or right view !
 https://www.boschrexroth.com/MTeShop/Configuration/?cat=Assembly-Technology-Catalog&p=p826829&pi=17ECFEE8-96EF-99E6-8DCE8B30A97F24E7_ICS_86&Scenario=portal,PORTALLINKS&Configurator=MTeShop&Modelcode=_LIB_MGE_20_20X20&Action=DXF
 
+# Contact for Collaboration
+andras.steger@mail.com
+

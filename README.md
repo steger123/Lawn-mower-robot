@@ -48,4 +48,5 @@ E.  Cycloid gearbox ?
 The software have to ensure object recognition, obstacle avoidance and route planning.
 
 ## Colaboration:
-If You like to join, please contact me.
+If You like to join, please contact me:
+andras.steger@mail.com

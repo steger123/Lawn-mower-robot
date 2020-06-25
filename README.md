@@ -1,4 +1,7 @@
 # Lawn-mower-robot
+More information:
+
+https://github.com/steger123/Lawn-mower-robot/wiki
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/openLogo.png)
 
 ## As of now (June 2020) we are on the beginning of the Project.

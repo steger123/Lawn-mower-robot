@@ -12,6 +12,9 @@ Max size 600x400 mm. Weight: max. 10 kg.
 
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/concept_body.jpg)
 
+### Current status:
+![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/Designs/01_Body/Status_Body.jpg
+
 To help for the desing:
 CAD files can be downloded for the aluminium profiles:
 

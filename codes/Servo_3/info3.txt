@@ -1,0 +1,27 @@
+https://learn.adafruit.com/16-channel-pwm-servo-driver?view=all
+
+#sudo apt-get install ...
+sudo pip install Adafruit-Blinka
+sudo pip install adafruit-circuitpython-pca9685
+sudo pip install adafruit-circuitpython-servokit
+
+Program:
+# Simple test for a standard servo on channel 0 and
+# a continuous rotation servo on channel 1.
+
+import time
+from adafruit_servokit import ServoKit
+ 
+# Set channels to the number of servo channels on your kit.
+kit = ServoKit(channels=16)  # 8 for FeatherWing, 16 for Shield/HAT/Bonnet.
+ 
+kit.servo[0].angle = 180      #Set the angle to 180, one extreme of the range
+kit.continuous_servo[1].throttle = 1      #start the continuous rotation servo connected to channel 1 to full throttle forwards
+# kit.continuous_servo[1].throttle = 0.5 To set half throttle, use a decimal
+time.sleep(1)
+kit.continuous_servo[1].throttle = -1     #start the continuous rotation servo connected to channel 1 to full reverse throttle
+
+time.sleep(1)
+
+kit.servo[0].angle = 0   #Return the servo to 0 degrees
+kit.continuous_servo[1].throttle = 0    # stop continuous rotation servo movement 

@@ -9,7 +9,8 @@ sudo apt-get install git build-essential python-dev
 cd ~     #may be not reqired
 git clone https://github.com/adafruit/Adafruit_Python_PCA9685.git
 cd Adafruit_Python_PCA9685
-sudo python setup.py install
+sudo python setup.py install    # for python 2
+sudo python3 setup.py install	# for python 3
 
 Program:
 # Simple demo of of the PCA9685 PWM servo/LED controller library.
@@ -57,4 +58,10 @@ while True:
     pwm.set_pwm(0, 0, servo_min)
     time.sleep(1)
     pwm.set_pwm(0, 0, servo_max)
+    time.sleep(1)
+
+# Move servo on channel 1 between extremes.
+    pwm.set_pwm(1, 0, servo_min)
+    time.sleep(1)
+    pwm.set_pwm(1, 0, servo_max)
     time.sleep(1)

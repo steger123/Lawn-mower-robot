@@ -52,4 +52,4 @@ The software have to ensure object recognition, obstacle avoidance and route pla
 
 ## Colaboration:
 If You like to join, please contact me:
-andras.steger@mail.com
+andras.steger@protonmail.com

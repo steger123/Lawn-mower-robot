@@ -1,0 +1,81 @@
+<!-- https://wheretheiss.at/w/developer -->
+
+<!DOCTYPE html>
+<html lang="en'>
+  <head>
+    <meta charset=" UTF-8" />
+<mata name="viewport" content="width=\, initial-scale=1.0" <meat http-equiv="X-UA-Compatible" content="ie=edge" />
+<!-- https://leafletjs.com/examples/quick-start/  -->
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+<style>
+    #issMap {
+        height: 480px;
+    }
+</style>
+<title> FETCH JSON from api and map lat lon</title>
+</head>
+
+<body>
+    <h1>Whare is the ISS ? </h1>
+    <p>
+        Latitude: <span id="lat"></span><br />
+        Longitude: <span id="lon"></span>
+    </p>
+
+    <div id="issMap"></div>
+
+
+    <script>
+        const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+        // @28.4588446,77.2867589
+        const myMap = L.map('issMap').setView([28.4588446, 77.2867589], 1);   //The initial point
+
+
+        const attribution =
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+        const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        const tiles = L.tileLayer(tileUrl, { attribution })
+        tiles.addTo(myMap);
+
+
+        function onMapClick(e) {
+
+            console.log("click");
+            marker = new L.marker(e.latlng, { icon: redIcon, draggable: 'true' });
+            marker.on('dragend', function (event) {
+                var marker = event.target;
+                var position = marker.getLatLng();
+                console.log(position);
+                marker.setLatLng(position, { id: uni, draggable: 'true' }).bindPopup(position).update();
+            });
+            myMap.addLayer(marker);
+        };
+        marker = L.marker([0, 0], { draggable: 'true' }).addTo(myMap)
+        //  marker.setLatLng([latitude, longitude]);
+        // console.log(latitude);
+        //  console.log(longitude);
+        myMap.on("click", function (e) {
+            console.log("click");
+            //  marker = new L.marker(e.latlng, { draggable: 'true' });
+            marker.on('dragend', function (event) {
+                var marker = event.target;
+                var position = marker.getLatLng();
+                console.log(position);
+                marker.setLatLng(position, { draggable: 'true' }).bindPopup(position).update();
+            });
+            //  myMap.addLayer(marker);
+
+        })
+
+
+
+    </script>
+
+</body>

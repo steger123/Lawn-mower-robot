@@ -1,0 +1,6 @@
+https://learn.sparkfun.com/tutorials/what-is-gps-rtk/all
+https://www.use-snip.com/kb/knowledge-base/an-open-ntrip-caster/
+
+https://www.use-snip.com/kb/knowledge-base/question-what-ntrip-client-should-i-use/
+http://lefebure.com/software/ntripclient/
+https://igs.bkg.bund.de/ntrip/download

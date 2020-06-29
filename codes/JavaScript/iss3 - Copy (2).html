@@ -1,0 +1,238 @@
+<!-- https://wheretheiss.at/w/developer -->
+
+<!DOCTYPE html>
+<html lang="en'>
+    <head>
+    <meta charset=" UTF-8" />
+
+<mata name="viewport" content="width=\, initial-scale=1.0" <meat http-equiv="X-UA-Compatible" content="ie=edge" />
+<!-- https://leafletjs.com/examples/quick-start/  -->
+<!--
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+-->
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+<style>
+    #issMap {
+        height: 480px;
+    }
+</style>
+<title> FETCH JSON from api and map lat lon</title>
+</head>
+
+<body>
+    <table style="width:100%">
+        <tr>
+            <td>Latitude: <span id="lat"></span></td>
+            <td>Longitude: <span id="lon"></span></td>
+        </tr>
+        <tr>
+            <td> <span id="client"></span></td>
+            <td><span id="screen"></span></td>
+        </tr>
+        <tr>
+            <td> <button id="myRouting" onclick="myRouting()">Routing</button></td>
+            <td><button id="myRoutSave" onclick="myRoutSave()">Save Route</button></td>
+        </tr>
+        <tr>
+            <td> <button id="myRoutLoad" onclick="myRoutLoad()">Load Route</button></td>
+            <td><button id="myRoutSend" onclick="myRoutSend()">Send Route</button></td>
+        </tr>
+    </table>
+
+
+    <p>Clock:<span id="clock"></span></p>
+
+    <div id="issMap" onmousemove="showCoords(event)"></div>
+
+    <script>
+        const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';  //get ISS data
+        // @28.4588446,77.2867589
+        const myMap = L.map('issMap').setView([28.4588446, 77.2867589], 18);   //The initial point
+        const attribution = '';
+        //const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        //const tiles = L.tileLayer(tileUrl, { attribution })
+        //tiles.addTo(myMap);
+
+        // Creating a Layer object
+        var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+        myMap.addLayer(layer); // Adding layer to the map
+
+
+        var tractorIcon = L.icon({
+            iconUrl: 'tractor.png',
+            iconSize: [32, 50],
+            iconAnchor: [16, 25]
+            //  popupAnchor: [-3, -76],
+            //  shadowUrl: 'my-icon-shadow.png',
+            //  shadowSize: [68, 95],
+            //  shadowAnchor: [22, 94]
+        });
+        //L.marker([50.505, 30.57], { icon: myIcon }).addTo(map);
+        const marker = L.marker([0, 0], { icon: tractorIcon }).addTo(myMap).on('click', onTractor);
+
+        var startPoint = [28.4588446, 77.2867589];
+        var arr = [];  //Arreay for routing lines
+        var doRouting = false;
+        var clickedCircle;
+        var x, y;
+        var moveWaypoint = false;
+        ////////////////////////////////////////////////////////////////////////////////   
+        function onMapClick(e) {
+            gib_uni();
+            marker = new L.marker(e.latlng, { id: uni, icon: redIcon, draggable: 'true' });
+            marker.on('dragend', function (event) {
+                var marker = event.target;
+                var position = marker.getLatLng();
+                console.log(position);
+                marker.setLatLng(position, { id: uni, draggable: 'true' }).bindPopup(position).update();
+            });
+            map.addLayer(marker);
+        };
+
+        function onTractor(e) {
+            var clickedPoint;
+            //  console.log(this.getLatLng());
+            //  document.getElementById('lat').textContent = this.getLatLng().lat;  //Put the data in HTML
+            // document.getElementById('lon').textContent = this.getLatLng().lng;
+            //  moveWaypoint = true;
+            clickedCircle = e.target;
+            clickedPoint = clickedCircle.getLatLng()
+            //console.log("--");
+            console.log(clickedPoint);
+            x = clickedCircle.getLatLng().lat;
+            y = clickedCircle.getLatLng().lng;
+            moveWaypoint = true;
+            // clickedCircle.setLatLng([28.4588446, 77.2867589]);
+            // do something, like:
+            // clickedCircle.bindPopup("some content").openPopup();
+        }
+
+        async function getISS() {
+            const response = await fetch(api_url);
+            const data = await response.json(); // convert response to json 
+            const { latitude, longitude } = data;  // take out from data only two
+            document.getElementById('lat').textContent = latitude;
+            document.getElementById('lon').textContent = longitude;
+            //L.marker([latitude, latitude]).addTo(myMap);
+            // marker.setLatLng([latitude, longitude]);   //put marker in the position of the satelite
+            marker.setLatLng([28.4588446, 77.2867589]);
+
+            console.log(latitude);
+            console.log(longitude);
+
+        }
+
+        var myVar = setInterval(myTimer, 1000);
+
+        function myTimer() {
+            var d = new Date();
+            var t = d.toLocaleTimeString();
+            document.getElementById("clock").innerHTML = t;
+        }
+
+        function showCoords(event) {
+            var cX = event.clientX;
+            var sX = event.screenX;
+            var cY = event.clientY;
+            var sY = event.screenY;
+            var coords1 = "client - X:  " + cX + ",  Y coords: " + cY;
+            var coords2 = "screen -  X: " + sX + ",  Y coords: " + sY;
+            //document.getElementById("coords").innerHTML = coords1 + "<br>" + coords2;
+            document.getElementById("client").innerHTML = coords1;
+            document.getElementById("screen").innerHTML = coords2;
+            if (moveWaypoint) {
+                var newCoord = [];
+                newCoord[0] = x - 0.00001;
+                newCoord[1] = y - 0.00001;
+                clickedCircle.setLatLng(newCoord);
+                console.log("move");
+                // moveWaypoint=false;
+            }
+        }
+
+        function myRouting() {
+            var property = document.getElementById("myRouting");
+            if (doRouting) {
+                doRouting = false;
+                property.style.backgroundColor = "#FFFFFF"
+            } else {
+                doRouting = true;
+                property.style.backgroundColor = "#7FFF00"
+            }
+        }
+
+        ///////////////////////////////////////////////////////////////////////////
+        getISS();
+
+        var latlngs = [
+            [28.4588446, 77.2867589],
+            [28.4578446, 77.2867589],
+            [28.4578446, 77.2877589]
+        ];
+        var polyline = L.polyline(latlngs, { color: 'red' }).addTo(myMap);
+        // zoom the map to the polyline
+        myMap.fitBounds(polyline.getBounds());
+
+        //myMap.on('mouseover', console.log("mouse over map"));
+        //      myMap.on("click", function (e) {
+        //           new L.Marker([e.latlng.lat, e.latlng.lng]).addTo(myMap);
+        //     })
+        myMap.on("click", function (e) {  //Listener: Click on MAP -> Addign the WAYPOINTS
+            if (doRouting) {
+                var newLine = [
+                    startPoint,
+                    [e.latlng.lat, e.latlng.lng]
+                ];
+                arr[0, 0] = startPoint[0];
+                arr[0, 1] = startPoint[1];
+                arr[0, 2] = e.latlng.lat;
+                arr[0, 3] = e.latlng.lng;
+
+                new L.polyline(newLine, { color: 'blue', noClip: true }).addTo(myMap);
+                L.circleMarker([e.latlng.lat, e.latlng.lng]).addTo(myMap).on('mousedown', onTractor);  //move the Waypoint
+
+                startPoint = [e.latlng.lat, e.latlng.lng];
+                console.log(arr);
+            }
+            else {
+                // console.log(L.circleMarker.getLatLng()[0]);   //detect which waypoint is slected
+            }
+        })
+
+        //  myMap.on("mouseover", function (e) {  //Listener:
+        //     if (moveWaypoint) {
+        // var clickedCircle = e.target;
+        //         clickedCircle.setLatLng([28.4588446, 77.2867589]);
+        //     }
+        // })
+
+        myMap.on("zoom", function (e) {  //Listener:
+            console.log("ZOOM!");
+            console.log(myMap.getZoom());
+            if (myMap.getZoom() < 18) {
+                tractorIcon.iconSize = [16, 24];
+                //  var i/con = tractorIcon.options.icon;
+                //  icon.options.iconSize = [16, 24];
+                //  icon.options.iconAnchor = [8, 12];
+                //  tractorIcon.setIcon(icon);
+
+                //            tractorIcon = L.icon({
+                //           iconUrl: 'tractor.png',
+                //         iconSize: [32, 50],
+                //       iconAnchor: [16, 25]
+            }
+
+        })
+    </script>
+
+</body>

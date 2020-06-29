@@ -1,0 +1,64 @@
+<!-- https://wheretheiss.at/w/developer -->
+
+<!DOCTYPE html>
+<html lang="en'>
+  <head>
+    <meta charset=" UTF-8" />
+<mata name="viewport" content="width=\, initial-scale=1.0" <meat http-equiv="X-UA-Compatible" content="ie=edge" />
+<!-- https://leafletjs.com/examples/quick-start/  -->
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+<style>
+    #issMap {
+        height: 480px;
+    }
+</style>
+<title> FETCH JSON from api and map lat lon</title>
+</head>
+
+<body>
+    <h1>Whare is the ISS ? </h1>
+    <p>
+        Latitude: <span id="lat"></span><br />
+        Longitude: <span id="lon"></span>
+    </p>
+
+    <div id="issMap"></div>
+
+
+    <script>
+        const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+        // @28.4588446,77.2867589
+        const myMap = L.map('issMap').setView([28.4588446, 77.2867589], 18);   //The initial point
+        const marker = L.marker([0, 0]).addTo(myMap);
+
+        const attribution =
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+        const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        const tiles = L.tileLayer(tileUrl, { attribution })
+        tiles.addTo(myMap);
+
+        async function getISS() {
+            const response = await fetch(api_url);
+            const data = await response.json(); // convert response to json 
+            const { latitude, longitude } = data;  // take out from data only two
+            document.getElementById('lat').textContent = latitude;
+            document.getElementById('lon').textContent = longitude;
+            //L.marker([latitude, latitude]).addTo(myMap);
+            marker.setLatLng([latitude, longitude]);
+
+            console.log(latitude);
+            console.log(longitude);
+
+        }
+        getISS();
+
+    </script>
+
+</body>

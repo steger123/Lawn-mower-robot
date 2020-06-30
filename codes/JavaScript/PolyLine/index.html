@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+    <style>
+        #fieldMap {
+            height: 600px;
+        }
+    </style>
+    <title> DRAG Polyline</title>
+
+</head>
+
+<body>
+
+    <table style="width:100%">
+        <tr>
+            <td>Latitude: <span id="lat"></span></td>
+            <td>Longitude: <span id="lon"></span></td>
+        </tr>
+        <tr>
+            <td> <span id="client"></span></td>
+            <td><span id="screen"></span></td>
+        </tr>
+        <tr>
+            <td> <button id="myRouting" onclick="btnRouting()">Routing</button></td>
+            <td><button id="myRoutSave" onclick="myRoutSave()">Save Route</button></td>
+        </tr>
+        <tr>
+            <td> <button id="myRoutLoad" onclick="myRoutLoad()">Load Route</button></td>
+            <td><button id="myRoutSend" onclick="myRoutSend()">Send Route</button></td>
+        </tr>
+    </table>
+
+    <div id="fieldMap"></div>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

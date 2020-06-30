@@ -1,4 +1,3 @@
-
 const map = L.map('fieldMap').setView([28.4588446, 77.2867589], 17);   //The initial point
 var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 map.addLayer(layer); // Adding layer to the map
@@ -6,6 +5,9 @@ map.addLayer(layer); // Adding layer to the map
 var marker_arr = [];
 var marker_pos = [];
 var marker_new = [];
+
+var tempLine = null;
+
 ///////////////////
 // ADD markers :
 //var a = new L.LatLng(28.4588446, 77.2867589),
@@ -44,6 +46,10 @@ marker_arr[1] = new L.Marker(marker_pos[1], { icon: locationIcon, draggable: tru
 marker_arr[2] = new L.Marker(marker_pos[2], { icon: locationIcon, draggable: true }).addTo(map);
 
 var polyline_demo = new L.Polyline([marker_pos[0], marker_pos[1], marker_pos[2]]).addTo(map);  // make the polyline as well
+marker_arr[0].parentLine = polyline_demo;
+marker_arr[1].parentLine = polyline_demo;
+marker_arr[2].parentLine = polyline_demo;
+
 
 var myGroup = L.layerGroup([marker_arr[0], marker_arr[1], marker_arr[2]]);
 myGroup.eachLayer(function (layer) {
@@ -57,24 +63,33 @@ myGroup.eachLayer(function (layer) {
 // Now on dragstart you'll need to find the latlng from the polyline which corresponds
 // with your marker's latlng and store it's key in your marker instance so you can use it later on:
 function dragStartHandler(e) {
-    var latlngPoly = polyline_demo.getLatLngs(),		// Get the polyline's latlngs
-        latlngMarker = this.getLatLng();		// Get the actual, cliked MARKER's start latlng
-    console.log("start");
-    for (var i = 0; i < latlngPoly.length; i++) {		// Iterate the polyline's latlngs
-        if (latlngMarker.equals(latlngPoly[i])) {		// Compare marker's latlng ot the each polylines 
-            this.polylineLatlng = i;			// If equals store key in marker instance
-        }
+		var polyline = e.target.parentLine;
+    if(polyline){
+     var latlngPoly = polyline.getLatLngs(),     // Get the polyline's latlngs
+      //var latlngPoly = polyline3.getLatLngs() // *** NOT WORKING !
+          latlngMarker = this.getLatLng();        // Get the actual, cliked MARKER's start latlng
+      console.log("start");
+      for (var i = 0; i < latlngPoly.length; i++) {       // Iterate the polyline's latlngs
+          if (latlngMarker.equals(latlngPoly[i])) {       // Compare marker's latlng ot the each polylines 
+              this.polylineLatlng = i;            // If equals store key in marker instance
+          }
+      }
     }
 }
 
 // Now you know the key of the polyline's latlng you can change it
 // when dragging the marker on the dragevent:
 function dragHandler(e) {
-    var latlngPoly = polyline_demo.getLatLngs(),	// Get the polyline's latlngs
-        latlngMarker = this.getLatLng();			// Get the marker's current latlng
-    console.log("drag");
-    latlngPoly.splice(this.polylineLatlng, 1, latlngMarker);		// Replace the old latlng with the new
-    polyline_demo.setLatLngs(latlngPoly);			// Update the polyline with the new latlngs
+		var polyline = e.target.parentLine;
+    if(polyline){
+      var latlngPoly = e.target.parentLine.getLatLngs(),    // Get the polyline's latlngs
+      //var latlngPoly = polyline3.getLatLngs() // *** NOT WORKING !    
+          latlngMarker = this.getLatLng();            // Get the marker's current latlng
+      console.log("drag");
+      latlngPoly.splice(this.polylineLatlng, 1, latlngMarker);        // Replace the old latlng with the new
+      polyline.setLatLngs(latlngPoly);           // Update the polyline with the new latlngs
+      //polyline3.setLatLngs(latlngPoly);     // *** NOT WORKING !
+    }
 }
 
 // Just to be clean and tidy remove the stored key on dragend:
@@ -136,11 +151,15 @@ function btnRouting() {
         console.log(newPoly);
         console.log(newPoly2);
         console.log('orange');
-        //make one polyline from clickings, which shall me draggable later
-        var polyline3 = new L.Polyline(newPoly2, { color: '#00AA00', weight: 10, opacity: 0.4 }).addTo(map);
 
-        //make one polyline from clickings, which shall me draggable later
-        // var polyline2 = new L.Polyline(pp, { color: 'red' }).addTo(map);
+        //make one polyline from clickings, which shall be draggable later:
+        // ****** THIS IS NOT MOVING IF I CHANGE it in the HANDLERS *******//
+
+        var polyline = tempLine.setStyle({ color: '#00AA00', weight: 10, opacity: 0.4 });
+        tempLine = null;
+
+        //*****************************************************************//
+  
 
     } else {   //End the routing
         doRouting = true;
@@ -149,26 +168,24 @@ function btnRouting() {
     }
 }
 
+
 map.on("click", function (e) {  //Listener: Click on MAP -> Addign the WAYPOINTS
     if (doRouting) {
-        var newLine = [
-            startPoint,
-            [e.latlng.lat, e.latlng.lng]  //mouse click position in lat & long
-        ];
-        //arr[lineCount][0] = startPoint[0];
-        //arr[lineCount][1] = startPoint[1];
-        //arr[lineCount][2] = e.latlng.lat;
-        //arr[lineCount][3] = e.latlng.lng;
+        if(!tempLine){
+          tempLine = L.polyline([], { color: 'blue', noClip: true }).addTo(map);
+        }
+        tempLine.addLatLng(e.latlng);
+       
+
         newPoly[lineCount][0] = startPoint[0];
         newPoly[lineCount][1] = startPoint[1];
         newPoly[lineCount + 1][0] = e.latlng.lat;
         newPoly[lineCount + 1][1] = e.latlng.lng;
 
         lineCount++;
-        // initial line & marker:
-        new L.polyline(newLine, { color: 'blue', noClip: true }).addTo(map);
-        //L.circleMarker([e.latlng.lat, e.latlng.lng]).addTo(map);  //move the Waypoint
+       //L.circleMarker([e.latlng.lat, e.latlng.lng]).addTo(map);  //move the Waypoint
         marker_new[lineCount] = new L.marker([e.latlng.lat, e.latlng.lng], { icon: locationIcon, draggable: true, opacity: 0.4 }).addTo(map).on('dragstart', dragStartHandler).on('drag', dragHandler).on('dragend', dragEndHandler);
+        marker_new[lineCount].parentLine = tempLine;
 
 
         startPoint = [e.latlng.lat, e.latlng.lng];
@@ -176,6 +193,6 @@ map.on("click", function (e) {  //Listener: Click on MAP -> Addign the WAYPOINTS
     }
     else {
 
-        // console.log(L.circleMarker.getLatLng()[0]);   //detect which waypoint is slected
+        // console.log(L.circleMarker.getLatLng()[0]);   //detect which waypoint is selected
     }
 })

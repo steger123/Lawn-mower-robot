@@ -9,6 +9,12 @@ https://github.com/steger123/Lawn-mower-robot/wiki
 The aim is to design a lawnmower robot based on design proposals.
 As the first step various concept proposals are required from the team.
 
+## Name of the robot:
+# Golem
+
+## Robot logo:
+![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/Golem_n.png)
+
 ## Body:
 Max size 600x400 mm. Weight: max. 10 kg.
 1. What the shape, layout looks like?
@@ -46,9 +52,10 @@ E.  Cycloid gearbox ?
 3.  Route planning: GPS and real kinematics
 
 ## Software:
-1. Python
-2. TensorFlow, PyTorch
+1. Python (robot)
+2. TensorFlow, PyTorch (robot)
 The software have to ensure object recognition, obstacle avoidance and route planning.
+3. JavaScript (Running in Misson palnning and conrolling PC) Called: Robot Rover Planner.
 
 ## Colaboration:
 If You like to join, please contact me:

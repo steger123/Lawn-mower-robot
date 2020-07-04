@@ -55,7 +55,7 @@ E.  Cycloid gearbox ?
 1. Python (robot)
 2. TensorFlow, PyTorch (robot)
 The software have to ensure object recognition, obstacle avoidance and route planning.
-3. JavaScript (Running in Misson palnning and conrolling PC) Called: Robot Rover Planar)
+3. JavaScript (Running in Misson palnning and conrolling PC) Called: Robot Rover Planner.
 
 ## Colaboration:
 If You like to join, please contact me:

@@ -1,0 +1,9 @@
+For serial communication follow:
+
+https://github.com/p5-serial/p5.serialport
+https://github.com/p5-serial/p5.serialcontrol/releases
+Beta 1.2:
+https://github.com/p5-serial/p5.serialcontrol/releases/tag/0.1.2
+
+Download the p5.serialserver according to Your OS.
+The client side libraries are already on my repo.

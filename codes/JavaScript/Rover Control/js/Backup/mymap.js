@@ -13,14 +13,11 @@ function flightDataTab() {
   document.getElementById("flight-data-tab").className = "nav-link active";
 
   // Change panel visibility
-  document.getElementById("flight-data-panel").style.visibility = "visible";  //switch on the panel on the left side
+  document.getElementById("flight-data-panel").style.visibility = "visible";
   document.getElementById("mission-plan-panel").style.display = "none";
   document.getElementById("geofence-panel").style.display = "none";
   document.getElementById("import-export-panel").style.display = "none";
   document.getElementById("camera-panel").style.display = "none";
-  document.getElementById("routing-panel").style.display = "none";
-  document.getElementById("connect-panel").style.display = "none";
-
   /*
     // Disable mission planner
     disable_mission_planner();
@@ -42,12 +39,10 @@ function planMissionTab() {
 
   // Change panel visibility
   document.getElementById("flight-data-panel").style.visibility = "hidden";
-  document.getElementById("mission-plan-panel").style.display = "block";  //switch on the panel on the left side
+  document.getElementById("mission-plan-panel").style.display = "block";
   document.getElementById("geofence-panel").style.display = "none";
   document.getElementById("import-export-panel").style.display = "none";
   document.getElementById("camera-panel").style.display = "none";
-  document.getElementById("routing-panel").style.display = "none";
-  document.getElementById("connect-panel").style.display = "none";
   /*
     if (missionRunning == false) {
   
@@ -77,11 +72,9 @@ function geofenceTab() {
   // Change panel visibility
   document.getElementById("flight-data-panel").style.visibility = "hidden";
   document.getElementById("mission-plan-panel").style.display = "none";
-  document.getElementById("geofence-panel").style.display = "block";  //switch on the panel on the left side
+  document.getElementById("geofence-panel").style.display = "block";
   document.getElementById("import-export-panel").style.display = "none";
   document.getElementById("camera-panel").style.display = "none";
-  document.getElementById("routing-panel").style.display = "none";
-  document.getElementById("connect-panel").style.display = "none";
   /*
     // Disable mission planner
     disable_mission_planner();
@@ -113,10 +106,9 @@ function importExportTab() {
   document.getElementById("flight-data-panel").style.visibility = "hidden";
   document.getElementById("mission-plan-panel").style.display = "none";
   document.getElementById("geofence-panel").style.display = "none";
-  document.getElementById("import-export-panel").style.display = "block";  //switch on the panel on the left side
+  document.getElementById("import-export-panel").style.display = "block";
   document.getElementById("camera-panel").style.display = "none";
-  document.getElementById("routing-panel").style.display = "none";
-  document.getElementById("connect-panel").style.display = "none";
+
   // Enable export mission button only if mission is set
   /* 
     if (missionSet == false || missionError == true) {
@@ -150,7 +142,5 @@ function videoTab() {
   document.getElementById("mission-plan-panel").style.display = "none";
   document.getElementById("geofence-panel").style.display = "none";
   document.getElementById("import-export-panel").style.display = "none";
-  document.getElementById("camera-panel").style.display = "block";  //switch on the panel on the left side
-  document.getElementById("routing-panel").style.display = "none";
-  document.getElementById("connect-panel").style.display = "none";
+  document.getElementById("camera-panel").style.display = "block";
 }

@@ -1,9 +1,3 @@
-/*
-Copyright (c) 2016 Skysense Inc.
-License: GNU General Public License v3
-Author: Federico Fiorini, Michele Dallachiesa
-*/
-
 body {
     background-color: #ECECEC;
     min-width: 500px;
@@ -53,7 +47,7 @@ body {
 }
 
 ul.nav .nav-item a:hover, ul.nav .nav-item a:focus, ul.nav .nav-item a:active {
-  background-color: rgba(3, 149, 217, 0.1);
+  background-color: rgba(3, 149, 217, 0.5);
 }
 
 #help:hover, #help:focus, #help:active {
@@ -318,180 +312,14 @@ ul.nav .nav-item a:hover, ul.nav .nav-item a:focus, ul.nav .nav-item a:active {
   padding-left: 30%;
 }
 
-/* Smartphones (portrait) ----------- */
-@media only screen
-and (max-device-width : 640px)
-and (orientation : portrait) {
+/* my Style */
 
-   #message-box {
-     left: -100%;
-     font-size: 20px;
-   }
-
-   #message-box-background {
-     left: -100%;
-     font-size: 20px;
-   }
-
-   .left-panel {
-     left: -100%;
-   }
-
-   #show-left-panel {
-     display: inline;
-   }
-
-   .flight-data-div > h5 {
-     font-size: 22px;
-   }
-
-   .flight-data-div > h4 {
-     font-size: 30px;
-   }
-
-   .flight-data-div {
-     margin: 20px 0 20px 0;
-   }
-
-   .btn {
-     font-size: 25px;
-     margin: 10px 5px 20px 5px;
-   }
-
-   #clear {
-     margin: 10px 10% 10px 10px;
-   }
-
-   #header {
-     height: 100px;
-   }
-
-   #mission-param {
-     font-size: 25px;
-     padding-left: 5%;
-   }
-}
-
-/* Smartphones (landscape) ----------- */
-@media only screen
-and (max-device-width : 640px)
-and (orientation : landscape) {
-
-   #message-box {
-     left: 0;
-     font-size: 20px;
-   }
-
-   #message-box-background {
-     left: 0;
-     font-size: 20px;
-   }
-
-   .left-panel {
-     left: 0;
-   }
-
-   #show-left-panel {
-     display: none;
-   }
-
-   #hide-left-panel {
-     display: none;
-   }
-
-   .flight-data-div > h5 {
-     font-size: 22px;
-   }
-
-   .flight-data-div > h4 {
-     font-size: 30px;
-   }
-
-   .flight-data-div {
-     margin: 20px 0 20px 0;
-   }
-
-   .btn {
-     font-size: 25px;
-     margin: 10px 5px 20px 5px;
-   }
-
-   #clear {
-     margin: 10px 10% 10px 10px;
-   }
-
-   #header {
-     height: 73px;
-   }
-
-   #mission-param {
-     font-size: 25px;
-     padding-left: 5%;
-   }
-}
-
-/* iPads (portrait) ----------- */
-@media only screen
-and (min-device-width : 640px)
-and (max-device-width : 1024px)
-and (orientation : portrait) {
-
-  #message-box {
-    left: -30%;
-  }
-
-  #message-box-background {
-    left: -30%;
-  }
-
-  .left-panel {
-    left: -30%;
-  }
-
-  #show-left-panel {
-    display: inline;
-  }
-
-  .flight-data-div > h5 {
-    font-size: 18px;
-  }
-
-  .flight-data-div > h4 {
-    font-size: 24px;
-  }
-}
-
-/* iPads (landscape) ----------- */
-@media only screen
-and (min-device-width : 640px)
-and (max-device-width : 1024px)
-and (orientation : landscape) {
-
-  #message-box {
-    left: 0;
-  }
-
-  #message-box-background {
-    left: 0;
-  }
-
-  .left-panel {
-    left: 0;
-  }
-
-  #show-left-panel {
-    display: none;
-  }
-
-  #hide-left-panel {
-    display: none;
-  }
-
-  .flight-data-div > h5 {
-    font-size: 14px;
-  }
-
-  .flight-data-div > h4 {
-    font-size: 18px;
-  }
+/* Required on side panel/Plan Mission/ Wayp.-Lat-Long table */
+td {
+		font-family: Arial;
+		font-size: 10pt;
+	}
+	
+table, th, td {
+  border: 1px solid black;
 }

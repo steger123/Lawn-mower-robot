@@ -113,6 +113,7 @@ ul.nav .nav-item a:hover, ul.nav .nav-item a:focus, ul.nav .nav-item a:active {
 
 .left-panel {
   position: absolute;
+  left: -1px;
 	text-align: center;
   /*height: calc(100% - 210px);*/
   height: 100%;

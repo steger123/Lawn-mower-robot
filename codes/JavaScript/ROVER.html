@@ -39,7 +39,7 @@
             <ul id="header" class="nav nav-tabs">
                 <div class="navbar-header">
                     <a class="navbar-brand" target="_blank" href="http://www.skysense.co/">
-                        <img alt="Brand" src="img/logo.png">
+                        <img alt="Brand" src="img/rr.jpg">
                     </a>
                 </div>
 
@@ -268,7 +268,7 @@
 
                 <!-- myRouting menu -->
                 <div id="routing-panel" class="left-panel display-none">
-                    <p class="info-text">Routing the mission.</p>
+                    <p class="info-text">Routing the mission:</p>
                     <table <table width="200px" id="dataTable" border="1">
                         <tr>
                             <td style="width:10%">Wayp</td>
@@ -276,14 +276,12 @@
                             <td style="width:45%">Longitute</td>
                         </tr>
                     </table>
-                    <div id="geofence-buttons" class="bottom-wrappers">
+                    <div id="geofence-buttons">
                         <button id="clear-area" type="button" class="btn btn-primary margin-10"
                             onclick="delete_row('dataTable')">Delete last Waypoint</button>
-                        <button id="clear-area" type="button" class="btn btn-primary margin-10"
-                            onclick="update_table('dataTable')">Update Waypoint List</button>
+
                         <button id="clear-area" type="button" class="btn btn-success" onclick="send_waypoints">Send
-                            Wayps to
-                            robot</button>
+                            Wayps to robot</button>
                     </div>
                 </div>
 

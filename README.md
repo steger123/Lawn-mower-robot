@@ -51,11 +51,14 @@ E.  Cycloid gearbox ?
 2.  Raspberry pi v2 Camera or better
 3.  Route planning: GPS and real kinematics
 
-## Software:
-1. Python (robot)
-2. TensorFlow, PyTorch (robot)
-The software have to ensure object recognition, obstacle avoidance and route planning.
-3. JavaScript (Running in Misson palnning and conrolling PC) Called: Robot Rover Planner.
+## Communication:
+1. Between the robot and PC: GSM/serial port
+2. Accuatre (10cm) positioning requried: RTK, GNSS/GPS/NTRIP
+
+## Softwares:
+1. On the robot [Called: Golem]: Python with TensorFlow Light, PyTorch
+The software have to ensure object recognition, obstacle avoidance and route following.
+3. Mission palanning and controlling PC [Called: Robot Rover Planner]: JavaScript & p5.serialserver
 
 ## Colaboration:
 If You like to join, please contact me:

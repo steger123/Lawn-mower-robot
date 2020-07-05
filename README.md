@@ -8,15 +8,18 @@ https://github.com/steger123/Lawn-mower-robot/wiki
 
 The aim is to design a lawnmower robot based on design proposals.
 As the first step various concept proposals are required from the team.
+So we can decide together the main parameters. As the project progressing and evolving **You can learn more and more**,
+**and of course, have the designs and codes on free.**
+As a starter, it will be "just" a lawnmower, but later can be bigger (tractor, harvester, etc.)
 
 ## Name of the robot:
 # Golem
-(Can be changed ! Please proposing better :-)
+(It can be changed ! Please propose better :-)
 
 ## Robot logo:
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/Golem_n.png)
 
-(Can be changed ! Please proposing better :-)
+(It can be changed ! Please propose better :-)
 
 ## Body:
 Max size 600x400 mm. Weight: max. 20 kg.

@@ -11,18 +11,21 @@ As the first step various concept proposals are required from the team.
 
 ## Name of the robot:
 # Golem
+(Can be changed ! Please proposing better :-)
 
 ## Robot logo:
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/Golem_n.png)
 
+(Can be changed ! Please proposing better :-)
+
 ## Body:
-Max size 600x400 mm. Weight: max. 10 kg.
+Max size 600x400 mm. Weight: max. 20 kg.
 1. What the shape, layout looks like?
 
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/concept_body.jpg)
 
 ## Driven Wheels:
-Size: 8-13 inch. Weight: max. 500 g/pc
+Size: 8-13 inch. Weight: max. 1000 g/pc
 1.	How many wheels required ?
 
 ## Not driven wheels:

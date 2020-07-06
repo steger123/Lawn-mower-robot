@@ -69,3 +69,6 @@ The software have to ensure object recognition, obstacle avoidance and route fol
 ## Colaboration:
 If You like to join, please contact me:
 andras.steger@protonmail.com
+
+## Latest news:
+https://twitter.com/StegerAndras

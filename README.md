@@ -8,21 +8,27 @@ https://github.com/steger123/Lawn-mower-robot/wiki
 
 The aim is to design a lawnmower robot based on design proposals.
 As the first step various concept proposals are required from the team.
+So we can decide together the main parameters. As the project progressing and evolving **You can learn more and more**,
+**and of course, have the designs and codes on free.**
+As a starter, it will be "just" a lawnmower, but later can be bigger (tractor, harvester, etc.)
 
 ## Name of the robot:
 # Golem
+(It can be changed ! Please propose better :-)
 
 ## Robot logo:
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/Golem_n.png)
 
+(It can be changed ! Please propose better :-)
+
 ## Body:
-Max size 600x400 mm. Weight: max. 10 kg.
+Max size 600x400 mm. Weight: max. 20 kg.
 1. What the shape, layout looks like?
 
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/concept_body.jpg)
 
 ## Driven Wheels:
-Size: 8-13 inch. Weight: max. 500 g/pc
+Size: 8-13 inch. Weight: max. 1000 g/pc
 1.	How many wheels required ?
 
 ## Not driven wheels:
@@ -51,12 +57,18 @@ E.  Cycloid gearbox ?
 2.  Raspberry pi v2 Camera or better
 3.  Route planning: GPS and real kinematics
 
-## Software:
-1. Python (robot)
-2. TensorFlow, PyTorch (robot)
-The software have to ensure object recognition, obstacle avoidance and route planning.
-3. JavaScript (Running in Misson palnning and conrolling PC) Called: Robot Rover Planner.
+## Communication:
+1. Between the robot and PC: GSM/serial port
+2. Accuatre (10cm) positioning requried: RTK, GNSS/GPS/NTRIP
+
+## Softwares:
+1. On the robot [Called: Golem]: Python with TensorFlow Light, PyTorch
+The software have to ensure object recognition, obstacle avoidance and route following.
+3. Mission palanning and controlling PC [Called: Robot Rover Planner]: JavaScript & p5.serialserver
 
 ## Colaboration:
 If You like to join, please contact me:
 andras.steger@protonmail.com
+
+## Latest news:
+https://twitter.com/StegerAndras

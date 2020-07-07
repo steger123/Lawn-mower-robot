@@ -74,7 +74,7 @@ function dragStartHandler(e) {
             if (latlngMarker.equals(latlngPoly[i])) {       // Compare marker's latlng ot the each polylines 
                 this.polylineLatlng = i;            // If equals store key in marker instance
 
-                wayPoints[i][0] = latlngPoly[i].lat;  // sotre the dragged, new coordinates in the matrix
+                wayPoints[i][0] = latlngPoly[i].lat;  // store the dragged, new coordinates in the matrix
                 wayPoints[i][1] = latlngPoly[i].lng;
 
 
@@ -191,10 +191,10 @@ map.on("click", function (e) {  //Listener: Click on MAP -> Addign the WAYPOINTS
 
         lineCount++;
         //L.circleMarker([e.latlng.lat, e.latlng.lng]).addTo(map);  //move the Waypoint
-        // add marker on the map
+        // add marker to the map
         marker_new[lineCount] = new L.marker([e.latlng.lat, e.latlng.lng], { icon: locationIcon, draggable: true, opacity: 0.4 }).addTo(map).on('dragstart', dragStartHandler).on('drag', dragHandler).on('dragend', dragEndHandler);
         marker_new[lineCount].parentLine = tempLine;
-
+		marker_new[lineCount]._id = lineCount  //### required, becuse later this will give the refrence to delete it.
 
         startPoint = [e.latlng.lat, e.latlng.lng];  // save the new points for the starter of the next point
         console.log(arr);
@@ -230,7 +230,12 @@ function delete_row(tableID) {
         var table = document.getElementById(tableID);
         var rowCount = table.rows.length;
         if (rowCount > 1) {
-            table.deleteRow(rowCount - 1);
+			rowCount=rowCount-1;
+			delteLastWp(rowCount);
+            table.deleteRow(rowCount);
+			
+			lineCount=lineCount-1;
+			
         }
         //		for(var i=0; i<rowCount; i++) {
         //			var row = table.rows[i];
@@ -246,7 +251,26 @@ function delete_row(tableID) {
     }
 }
 
-function update_table(tableID) {
+function delteLastWp(id)  // ## with the last segment of the polyline 
+{ //marker_new[lineCount]
+
+	var new_markers = []
+	marker_new.forEach(function(marker) {
+		if (marker._id == id) {
+			map.removeLayer(marker);
+		}
+		else new_markers.push(marker)
+	})
+	
+	  marker_new = new_markers
+
+	 var latlngs = tempLine.getLatLngs()
+    latlngs.splice(-1); 
+    tempLine.setLatLngs(latlngs);
+		
+}
+
+function update_table(tableID) {   //this function is not in use
     // first delete the rowas expect the header
     // add new rown acc. 
     // newPoly[lineCount][0] = startPoint[0];
@@ -299,7 +323,5 @@ function btnConnect() {
     document.getElementById("camera-panel").style.display = "none";
     document.getElementById("routing-panel").style.display = "none";
     document.getElementById("connect-panel").style.display = "block";
-
-
 
 }

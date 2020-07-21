@@ -5,11 +5,19 @@ body {
 }
 
 .nav {
-  background-color: #FFFFFF;
+
   height: 73px;
   border-bottom: 3px solid black;
   z-index: 100;
 }
+
+.nav-side {
+
+  height: 73px;
+
+  z-index: 100;
+}
+
 
 .nav-item {
   height: 100%;
@@ -24,6 +32,7 @@ body {
   border: 0;
   margin-right: 0;
   padding-top: 20px;
+
 }
 
 .nav > li > a {
@@ -113,16 +122,24 @@ ul.nav .nav-item a:hover, ul.nav .nav-item a:focus, ul.nav .nav-item a:active {
 
 .left-panel {
   position: absolute;
-  left: -1px;
+  left: -1px;   /* # Paddign on he left nav panel*/
 	text-align: center;
   /*height: calc(100% - 210px);*/
   height: 100%;
-	width: 100%;
+  width: 100%;
   z-index: 0;
   background-color: rgba(0, 0, 0, 0.8);
+  
   color: #FFFFFF;
   border-right: 2px inset #000000;
   overflow: auto;
+}
+
+.left-panel
+{
+	height: 90%;
+	background-color: rgb(177, 177, 177);
+	padding-left: 5%;
 }
 
 #show-left-panel{
@@ -301,7 +318,7 @@ ul.nav .nav-item a:hover, ul.nav .nav-item a:focus, ul.nav .nav-item a:active {
   padding: 20px 10px 20px 10px;
   text-align: center;
   font-style: italic;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
   margin: 0;
 }
 
@@ -324,3 +341,4 @@ td {
 table, th, td {
   border: 1px solid black;
 }
+

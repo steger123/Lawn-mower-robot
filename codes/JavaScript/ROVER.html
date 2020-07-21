@@ -5,14 +5,13 @@
     <title>ROVER planner</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin="" />
-
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-        crossorigin=""></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	
+<script type="text/javascript" src="js/Edit.SimpleShape.js"></script> <!-- must be in the header ! -->
+<script type="text/javascript" src="js/Edit.Rectangle.js"></script>  <!-- must be in the header ! -->
+	
+	
     <!-- Include JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -20,13 +19,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" href="css/style.css">
+	
+	
+	<link rel="stylesheet" href="css/style.css">
 
     <style>
         #fieldMap {
             height: 600px;
         }
+		.leaflet-edit-move { cursor: move; }
+		.leaflet-edit-resize { cursor: pointer; }
     </style>
 
 </head>
@@ -80,17 +82,27 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a id="routing-tab" class="nav-link" href="#" onclick="btnRouting()">
+                    <a id="routing-tab" class="nav-link" href="#" onclick="routingTab()">
                         <span>Routing</span><br />
                         <img class="tab-img" src="img/routing.png" />
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a id="connect-tab" class="nav-link" href="#" onclick="btnConnect()">
+                    <a id="connect-tab" class="nav-link" href="#" onclick="connectTab()">
                         <span>Connect</span><br />
                         <img class="tab-img" src="img/connect.png" />
                     </a>
                 </li>
+				
+				
+				 <li class="nav-item">
+                    <a id="tools-tab" class="nav-link" href="#" onclick="toolsTab()">
+                        <span>Tools</span><br />
+                        <img class="tab-img" src="img/tools.png" />
+                    </a>
+                </li>
+								
+				
             </ul>
         </div>
 
@@ -98,9 +110,9 @@
 
             <!-- ******************************************************************** -->
 
-            <!-- SIDE menu -->
-            <div class="col-sm-2" style="background-color:gray;">
-
+            <!-- SIDE menu 
+            <div class="col-sm-2" style="background-color:gray;">    -->
+			<div class="col-sm-2" style="left-panel">
 
                 <!-- MISSION DATA menu -->
                 <div id="flight-data-panel" class="left-panel">
@@ -253,10 +265,17 @@
                         Set the mission before attempting an export.
                         You cannot import a new mission while a mission is running.</p>
                     <div id="import-export-buttons" class="top-wrappers">
-                        <button id="import-mission" type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#importMissionModal">Import Mission</button>
-                        <button id="export-mission" type="button" disabled class="btn btn-primary"
+ 
+					<!-- 	<input id="import-mission" type="file" class="btn btn-primary margin-10">-->
+                        						
+						<button type="button" class="btn btn-primary margin-10" data-toggle="modal"
+                            data-target="#importMissionModal">Import mission</button>
+							<!-- step #1: from here we call the 'importMissionModal'  -->
+							
+						<button id="export-mission" type="button" disabled class="btn btn-primary margin-10"
                             onclick="export_mission_btn()">Export Mission</button>
+						
+						<!-- <pre id="output"></pre>     the imported waypoints shall be appeare here -->
                     </div>
                 </div>
 
@@ -279,8 +298,9 @@
                     <div id="geofence-buttons">
                         <button id="clear-area" type="button" class="btn btn-primary margin-10"
                             onclick="delete_row('dataTable')">Delete last Waypoint</button>
-
-                        <button id="clear-area" type="button" class="btn btn-success" onclick="send_waypoints">Send
+						<button id="clear-area" type="button" class="btn btn-warning margin-10" onclick="set_mission()">Set
+                        Mission</button>
+                        <button id="clear-area" type="button" class="btn btn-success margin-10" onclick="send_waypoints()">Send
                             Wayps to robot</button>
                     </div>
                 </div>
@@ -309,10 +329,44 @@
                     </table>
 
                 </div>
-
-
-            </div>
-
+				
+				<!-- TOOLS menu -->
+                <div id="tools-panel" class="left-panel display-none">
+                    <p class="info-text">Tools menu</p>
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a id="routing-tab" class="nav-link" href="#" onclick="btnMeasure()">
+								<span>Measure</span><br />
+								<img class="tab-img" src="img/measure.png" />
+							</a>
+						<li>	
+							<a>Distance [m]: <span id="length"></span></a><br />
+						</li>
+						</li>
+						<li class="nav-item"  background-color:green>
+							<a id="routing-tab" class="nav-link" href="#" onclick="btnAutoTrace()">
+								<span>AutoTrace</span><br />
+								<img class="tab-img" src="img/autoroute.png" />
+							</a>
+						</li>
+						<li class="nav-item">
+							<a id="routing-tab" class="nav-link" href="#" onclick="btnArea()">
+								<span>Area</span><br />
+								<img class="tab-img" src="img/area3.png" />
+							</a>
+						</li>
+						<li class="nav-item">
+							<a id="routing-tab" class="nav-link" href="#" onclick="btnFieldTrace()">
+								<span>Field Trace</span><br />
+								<img class="tab-img" src="img/fieldtrace_222.png" />
+							</a>
+						</li>
+						
+					</ul><br />
+					
+                </div>
+				
+            </div> <!-- End SIDE menu -->
 
             <!-- MAP -->
             <div class="col-sm-10" style="background-color:rgb(150, 150, 150);" id="fieldMap"></div>
@@ -320,12 +374,50 @@
 
     </div> <!-- End Container fluid -->
 
+
+
+<!-- The Modal for Import Mission -->
+  <div class="modal" id="importMissionModal">  <!-- step #2: call from step #1  -->
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Open Mission</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+		
+          <!-- step #3: from here we trigger the listener in 'script.js' row #387  -->
+		  <input id="import-mission" type="file" class="btn btn-primary margin-10"> <!-- this is a button for File Explorer !-->
+		  
+		  <pre id="output"></pre> 		  
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div> <!-- End Modal to load Mission  -->
+
+
+
     <!-- Include local css and javascript files -->
     <script language="javascript" type="text/javascript" src="js/p5.js"></script>
     <script language="javascript" type="text/javascript" src="js/p5.serialport.js"></script>
     <script type="text/javascript" src="js/io.js"></script> <!-- serial communicaton -->
+	<!--  <script type="text/javascript" src="js/tools.js"></script>  -->
     <script type="text/javascript" src="js/script.js"></script> <!-- route plenning -->
     <script type="text/javascript" src="js/mymap.js"></script>
+	<script type="text/javascript" src="js/filesaver.js"></script>
+	<script type="text/javascript" src="js/tracing_2.js"></script>
 
 </body>
 

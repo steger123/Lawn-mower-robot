@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name w_conn_misc)(type KiCad)(uri C:/00_Robot/06_Elecronic/w_conn_misc.pretty)(options "")(descr ""))
+  (lib (name Arduino)(type KiCad)(uri C:/00_Robot/06_Elecronic/My_footprint_library)(options "")(descr "My Library"))
+)

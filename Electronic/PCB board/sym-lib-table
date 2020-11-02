@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name w_connectors)(type Legacy)(uri C:/00_Robot/06_Elecronic/w_conn/w_connectors.lib)(options "")(descr ""))
+  (lib (name My_symbol_library)(type Legacy)(uri C:/00_Robot/06_Elecronic/My_symbol_library.lib)(options "")(descr ""))
+  (lib (name PCB-board-rescue)(type Legacy)(uri "${KIPRJMOD}/PCB board-rescue.lib")(options "")(descr ""))
+)

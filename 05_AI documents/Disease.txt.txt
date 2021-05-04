@@ -1,0 +1,2 @@
+For Visual Plant Disease Detection check this:
+https://github.com/steger123/PlantDoc-Dataset

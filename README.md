@@ -4,13 +4,13 @@ More information:
 https://github.com/steger123/Lawn-mower-robot/wiki
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/openLogo.png)
 
-## As of now (June 2020) we are on the beginning of the Project.
+## As of now (may 2021) the project is in progress.
 
 The aim is to design a lawnmower robot based on design proposals.
-As the first step various concept proposals are required from the team.
+Concepts You can fing the the directiries.
 So we can decide together the main parameters. As the project progressing and evolving **You can learn more and more**,
 **and of course, have the designs and codes on free.**
-As a starter, it will be "just" a lawnmower, but later can be bigger (tractor, harvester, etc.)
+As a starter, it will be "just" a lawnmower. Parallel robot rover designed for scouting purpose on the filed. So the AI capabilites can be tried out more beneficcialy.
 
 ## Name of the robot:
 # Golem
@@ -52,19 +52,20 @@ D.  Bevel gearbox ?
 E.  Cycloid gearbox ?
 
 ## Electronic:
-1.  Jetson Nano
-2.  Motor controller
-2.  Raspberry pi v2 Camera or better
-3.  Route planning: GPS and real kinematics
+1.  Arduino MEGA, later Shieldbuddy TC375 (3 cors !)
+2.  Custom shield for proper connections (4xseial, 4xSPI, 3xI2C, buttons, 3xultrasonic sensos, volt & ampere meter etc.) 
+3.  Jetson Nano with normal webcam
+4.  2x DC motor controllers
+5.  2xGNSS modules with RTK (BASE+Xbee / Rover+XBee) 
 
 ## Communication:
-1. Between the robot and PC: GSM/serial port
+1. Between the robot and PC: radio
 2. Accuatre (10cm) positioning requried: RTK, GNSS/GPS/NTRIP
 
 ## Softwares:
 1. On the robot [Called: Golem]: Python with TensorFlow Light, PyTorch
-The software have to ensure object recognition, obstacle avoidance and route following.
-3. Mission palanning and controlling PC [Called: Robot Rover Planner]: JavaScript & p5.serialserver
+The software have to ensure object recognition (plant disease), obstacle avoidance and route following (AI, visual servoing / GNSS+RTK).
+3. Mission palanning and controlling PC [Called: Mission Planner]: C#
 
 ## Colaboration:
 If You like to join, please contact me:

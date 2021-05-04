@@ -52,7 +52,7 @@ D.  Bevel gearbox ?
 E.  Cycloid gearbox ?
 
 ## Electronic:
-1.  Arduino MEGA, later Shieldbuddy TC375 (3 cors !)
+1.  Arduino MEGA, later Shieldbuddy TC375 (3 cores !)
 2.  Custom shield for proper connections (4xseial, 4xSPI, 3xI2C, buttons, 3xultrasonic sensos, volt & ampere meter etc.) 
 3.  Jetson Nano with normal webcam
 4.  2x DC motor controllers

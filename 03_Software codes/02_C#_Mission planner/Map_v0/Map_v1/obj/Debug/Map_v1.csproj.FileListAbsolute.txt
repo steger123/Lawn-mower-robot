@@ -1,0 +1,13 @@
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\bin\Debug\Map_v1.exe.config
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\bin\Debug\Map_v1.exe
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\bin\Debug\Map_v1.pdb
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\bin\Debug\GMap.NET.Core.dll
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\bin\Debug\GMap.NET.WindowsForms.dll
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\obj\Debug\Map_v1.csprojResolveAssemblyReference.cache
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\obj\Debug\Map_v1.Form1.resources
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\obj\Debug\Map_v1.Properties.Resources.resources
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\obj\Debug\Map_v1.csproj.GenerateResource.Cache
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\obj\Debug\Map_v1.exe
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\obj\Debug\Map_v1.pdb
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\bin\Debug\Farmer.accdb
+C:\00_Robot\03_Visual Studio\Map_v0\Map_v1\obj\Debug\Map_v1.FormDirections.resources

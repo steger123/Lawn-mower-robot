@@ -14,10 +14,13 @@ As the project progressing and evolving **You can learn more and more**, **and o
 
 ### BASE:
 Mission Planner: C#
+https://github.com/steger123/Lawn-mower-robot/tree/master/03_Software%20codes/02_C%23_Mission%20planner
 
 ### Rover:
 Main MCU : C++ (Arduino)
-AI: Python (Jetson NANO), 
+https://github.com/steger123/Lawn-mower-robot/tree/master/03_Software%20codes/01_C%2B%2B_Arduino/01_Rover/Test_Motor_v12
+AI: Python (Jetson NANO)
+https://github.com/steger123/Lawn-mower-robot/tree/master/03_Software%20codes/03_Python_AI_Jetson%20Nano/01_myOpenCV
 
 ### Add on Hardware (electronic):
 1. Arduino MEGA later Shieldbuddy TC375 (3 cores !
@@ -31,18 +34,19 @@ AI: Python (Jetson NANO),
 9. Sensors on the shield (utlrasonoic distance, battery volt, curret mesuring, rain etc.)
 
 ## Body:
-As you like. In scouting for example: 1x x 1m x 0.5m
+As you like. In scouting for example: 1m x 1m x 0.5m
 
 ## Wheels:
 As you like. In scouting for example: driven 280 mm in diamteter + castor wheels.
+it can be smoot like a bicycle or thick lugs like on a tractor tire (good grippong during scouting on the field).
 
 ## Engine/motor:
-As you like. In scouting for example: 2x50 DC motors with encoders. 50 rpm
+As you like. In scouting for example: 2x 50W DC motors with encoders. 50 rpm
 
 ## Transmission:
 As you like. In scouting for example: plannetary gerabox.
 
-## Collaboration:
+## Collaboration (software, electronic hardware, new PCB/shiled, mechanical parts etc.):
 If You like to join, please contact me:
 andras.steger@protonmail.com
 

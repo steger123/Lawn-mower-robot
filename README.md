@@ -19,6 +19,7 @@ https://github.com/steger123/Lawn-mower-robot/tree/master/03_Software%20codes/02
 ### Rover:
 Main MCU : C++ (Arduino)
 https://github.com/steger123/Lawn-mower-robot/tree/master/03_Software%20codes/01_C%2B%2B_Arduino/01_Rover/Test_Motor_v12
+
 AI: Python (Jetson NANO)
 https://github.com/steger123/Lawn-mower-robot/tree/master/03_Software%20codes/03_Python_AI_Jetson%20Nano/01_myOpenCV
 
@@ -46,7 +47,7 @@ As you like. In scouting for example: 2x 50W DC motors with encoders. 50 rpm
 ## Transmission:
 As you like. In scouting for example: plannetary gerabox.
 
-## Collaboration (software, electronic hardware, new PCB/shiled, mechanical parts etc.):
+## Collaboration (software, electronic hardware, new PCB/shield, mechanical parts etc.):
 If You like to join, please contact me:
 andras.steger@protonmail.com
 
@@ -55,4 +56,6 @@ https://twitter.com/StegerAndras
 
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/01_Pictures/99_GitHub/Rover_1.jpg)
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/01_Pictures/99_GitHub/Mission%20planner_6%20C%23.jpg)
+
+Custom robot rover shield for Arduino MEGA:
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/01_Pictures/99_GitHub/Shield_Arduino%20MEGA_2.jpg)

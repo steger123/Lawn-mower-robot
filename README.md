@@ -3,10 +3,11 @@
 
 ## The main purpose of the project:
 
-Create a general, affordable, computational platform, which can be used for small & medium size robots.
-The navication can be: fully maunal, semi and full autonomouse.
+**Create a general, affordable, computational platform, which can be used for small & medium size robots.**
+
+The navivation can be: fully maunal, semi and full autonomouse.
 The mechanical side not restricted.
-As the project progressing and evolving **You can learn more and more**, **and of course, have the designs and codes on free.**
+As the project progressing and evolving **You can learn more and more**, **and of course, have the designs and codes for free.**
 
 ## Software:
 

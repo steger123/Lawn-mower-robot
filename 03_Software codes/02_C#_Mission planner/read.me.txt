@@ -4,7 +4,7 @@ If possible use Visual Studio 2013 Ultimate [VS]. (I try to keep low profile and
 To see the map the GMAP.NET Nuget package plug in required in VS.
 Guide how to install the package in VS:
 https://www.youtube.com/watch?v=TxSJJfaAzKg
-Just for info link to the web site.
+Just for info link to the web site: https://www.nuget.org/packages?q=gmap
 
 This version used:
 GMap.NET.WindowsForms by: radioman

@@ -1,16 +1,13 @@
 # Lawn-mower-robot
-More information:
-
-https://github.com/steger123/Lawn-mower-robot/wiki
+![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/01_Pictures/99_GitHub/logo.png)
 
 ## The main purpose of the project:
 
-Provide a platform for small and medium size robot rovers in sofware as well as hardware side for maunal, semi and full autonomouse navigation.
-The mechanical side can be anyting. For exmaple a lawnmower robot or little bit bigger scouting robot for agricultural purpose
-As the project progressing and evolving **You can learn more and more**, **and of course, have the designs and codes on free.**
+**Create a general, affordable, computational platform, which can be used for small & medium size robots.**
 
-## The logo of the robot mower:
-![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/01_Pictures/99_GitHub/logo.png)
+The navivation can be: fully maunal, semi and full autonomouse.
+The mechanical side not restricted.
+As the project progressing and evolving **You can learn more and more**, **and of course, have the designs and codes for free.**
 
 ## Software:
 
@@ -52,6 +49,9 @@ As you like. In scouting for example: plannetary gerabox.
 ## Collaboration (software, electronic hardware, new PCB/shield, mechanical parts etc.):
 If You like to join, please contact me:
 andras.steger@protonmail.com
+
+More information:
+https://github.com/steger123/Lawn-mower-robot/wiki
 
 ## Latest news:
 https://twitter.com/StegerAndras

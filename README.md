@@ -2,7 +2,6 @@
 More information:
 
 https://github.com/steger123/Lawn-mower-robot/wiki
-![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/openLogo.png)
 
 ## The main purpose of the project:
 

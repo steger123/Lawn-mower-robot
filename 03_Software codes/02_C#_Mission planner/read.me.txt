@@ -1,16 +1,16 @@
 The full source code in C# You can find in the above folder.
 If possible use Visual Studio 2013 Ultimate [VS]. (I try to keep low profile and be compatible.)
 
-To see the map the GMAP.NET Nuget package plug in required in VS.
+To see the map the GMap>NET Nuget package plug in required in VS.
 Guide how to install the package in VS:
 https://www.youtube.com/watch?v=TxSJJfaAzKg
 Just for info link to the web site: https://www.nuget.org/packages?q=gmap
 
-This version used:
+In the Mission Planner this version of the GMap.NET is used:
 GMap.NET.WindowsForms by: radioman
 (152,908 total downloads last updated 12/2/2016)
 https://www.nuget.org/packages/GMap.NET.WindowsForms/
 
-You can try this package as well an leave a comment how working.
+You can try this package as well and leave a comment how is it working?
 GMap.NET.Windows by: judero01
 99,072 total downloads last updated 2 months ago

@@ -43,11 +43,13 @@ As you like. In scouting for example: 2x50 DC motors with encoders. 50 rpm
 ## Transmission:
 As you like. In scouting for example: plannetary gerabox.
 
-![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/01_Pictures/01_Rover/01_Body/Rover_1.jpg)
-
 ## Collaboration:
 If You like to join, please contact me:
 andras.steger@protonmail.com
 
 ## Latest news:
 https://twitter.com/StegerAndras
+
+![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/01_Pictures/99_GitHub/Rover_1.jpg)
+![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/01_Pictures/99_GitHub/Mission%20planner_6%20C%23.jpg)
+![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/01_Pictures/99_GitHub/Shield_Arduino%20MEGA_2.jpg)

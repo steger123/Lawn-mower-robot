@@ -14,7 +14,6 @@ As the project progressing and evolving **You can learn more and more**, **and o
 
 ### BASE:
 Mission Planner: C#
-![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/pics/Golem_n.png)
 
 ### Rover:
 Main MCU : C++ (Arduino)

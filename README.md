@@ -57,5 +57,5 @@ https://twitter.com/StegerAndras
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/01_Pictures/99_GitHub/Rover_1.jpg)
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/01_Pictures/99_GitHub/Mission%20planner_6%20C%23.jpg)
 
-Custom robot rover shield for Arduino MEGA:
+Custom robot rover shield for Arduino MEGA or ShieldBuddy TC375:
 ![alt text](https://github.com/steger123/Lawn-mower-robot/blob/master/01_Pictures/99_GitHub/Shield_Arduino%20MEGA_2.jpg)

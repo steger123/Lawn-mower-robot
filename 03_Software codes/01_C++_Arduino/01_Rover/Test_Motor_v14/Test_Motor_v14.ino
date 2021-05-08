@@ -80,7 +80,7 @@ void loop() {
   //PS2/manual MODE:
   if (digitalRead(manualMode_pin) == HIGH) {  //PS2
     //Serial.println("Entered in MANUAL mode");
-    SerialLCDprint(0, "Ent. in MANUAL mode", "", "");
+    SerialLCDprint(0, "In MANUAL mode", "", "");
     modManual();
   }
 
@@ -94,8 +94,8 @@ void loop() {
   // if ( ....) // Remorte mode SMS or XBee (or both)
   if (digitalRead(remoteMode_pin) == LOW) {  // XBEE
     //Serial.println("Entered in REMOTE mode");
-    SerialLCDprint(0, "Ent. in REMOTE mode", "", "");
-    interrupts ();  // Enable interrupts
+    SerialLCDprint(0, "In REMOTE mode", "", "");
+    //interrupts ();  // Enable interrupts
     // Hall/Encoder sensor detection - Count steps:
     attachInterrupt(digitalPinToInterrupt(Encoder_pin_A), encCounterA, CHANGE); // functional issue !!!
     //attachInterrupt(digitalPinToInterrupt(Encoder_pin_B), encCounterB, CHANGE);
@@ -104,7 +104,7 @@ void loop() {
   }
 
   if (digitalRead(remoteMode_pin) == LOW) {  // XBEE
-    Serial.println("Entered in MISSION mode");
+    Serial.println("In MISSION mode");
   //  interrupts ();  // Enable interrupts
     // Hall/Encoder sensor detection - Count steps:
   //  attachInterrupt(digitalPinToInterrupt(Encoder_pin_A), encCounterA, CHANGE); // functional issue !!!

@@ -41,6 +41,21 @@ void modRemote() {
       drive(robDirection, PWM_speed);    // ************ Main driving function  !!!!!!!
       // }
     }   // end serial if
+
+    USDistaneLeft = USSensor(Trig_pinL, Echo_pinL);
+    Serial.println("___REMOTE____");
+    /*   Serial.print("_USDistaneLeft: ");  Serial.println(USDistaneLeft);
+       Serial.print("_robDirection: ");  Serial.println(robDirection);
+       Serial.print("_prevDirection: ");  Serial.println(prevDirection);
+       Serial.print("_PWM_speed: ");  Serial.println(PWM_speed);
+    */  // if (( USDistaneLeft > 20) && (suddenStop == true) && (prevDirection != "stop")) //100 cm  // restart the rover
+    if (( USDistaneLeft > 20) && (suddenStop == true)) //100 cm  // restart the rover
+    {
+      suddenStop = false;
+      Serial.print(">>> robDirection: ");  Serial.println(robDirection);
+      drive(robDirection, PWM_speed); Serial.println(">>> No obsticle !");
+    } // end if
+
   } //end while (1)
 }
 
@@ -101,12 +116,12 @@ void robStatus ()
   float testLat = 28.459111;  // sting lenth =11
   float testLng = 77.286910;
   float testHead = 242.23;
-/*
-  dtostrf(testLat, 6, 7, buff);  //4 is mininum width, 6 is precision
-  Serial3.println(buff);
-  dtostrf(testLng, 6, 7, buff);  //4 is mininum width, 6 is precision
-  Serial3.println(buff);
-*/
+  /*
+    dtostrf(testLat, 6, 7, buff);  //4 is mininum width, 6 is precision
+    Serial3.println(buff);
+    dtostrf(testLng, 6, 7, buff);  //4 is mininum width, 6 is precision
+    Serial3.println(buff);
+  */
   Serial3.print("temp     [C] : "); Serial3.println(batTemp);
   Serial3.print("volt     [V] : "); Serial3.println(VBat / 1000);
   Serial3.print("capacity [%] : "); Serial3.println(VBatPC);

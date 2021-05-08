@@ -45,9 +45,10 @@ int turnTickCount = 0;      //how many ecoder tick required lat se for X degree 
 
 int PWM_speed   = 0;          // actual speed of the robot, first select "start" to start the robot
 int oldSpeed    = 0;          // for proper acceleration 
-int wheelTurnRequired    = 0;
+int wheelTurnRequired    = -1;
 String robDirection = "st";   // start
 String prevDirection;
+boolean suddenStop = false;  // it is in the Interrrup when ultrasonic senso triggered.
 int gear        = 2;
 boolean startMotor = false;
 int i;                        // for 'for' cyclus

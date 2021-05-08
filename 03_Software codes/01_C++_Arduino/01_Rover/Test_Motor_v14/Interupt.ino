@@ -4,51 +4,40 @@ void encCounterA() {
   //  Serial.print("Encoder motPosCount: "); //blocking the serial communication
   //  Serial.print("pos: "); Serial.println(motPosCount);
   Serial.println(">>> === *** interup loop: ***");
-  Serial.print("encCountA: "); Serial.println(encCountA);
-  Serial.print("wheelTurnCount: "); Serial.println(wheelTurnCount);
-  Serial.print("wheelTurnRequired: "); Serial.println(wheelTurnRequired);
-  Serial.print("mode: "); Serial.println(mode);
+  /* Serial.print("> encCountA: "); Serial.println(encCountA);
+    Serial.print("> wheelTurnCount: "); Serial.println(wheelTurnCount);
+    Serial.print("> wheelTurnRequired: "); Serial.println(wheelTurnRequired);
+    Serial.print("> mode: "); Serial.println(mode);  // for turning different resolution [encCountA] required as for just go forward [wheelTurnCount]
 
-  //  Serial.print("wheelTurnRequired: ");
-  //  Serial.println(wheelTurnRequired);
-  //  if ( motPosCount >= wheelTurnRequired && digitalRead(manualMode_pin) == LOW ) {
-  /* wheelTurnRequired = 100;
-    if ( motPosCount >= wheelTurnRequired ) {
-      robStop();
-      motPosCount = 0;
-      wheelTurnRequired = -1;
-      prevDirection = "stop";
-    }
+    Serial.print("> ****** PREV- DIRECTION: "); Serial.println(prevDirection);
+    Serial.print("> ******* ROBDIRECTION: "); Serial.println(robDirection);
   */
-
-  if (encCountA >= 53) { //1240  76  //57
-    wheelTurnCount++;       // egy kerekfodulat 1240 impulzus
+  if (encCountA >= 76) { //1240  76  //57
+    wheelTurnCount++;       // 53 egy kerekfodulat 1240 impulzus
     Serial.print("** Wheel rotation: "); Serial.println(wheelTurnCount);
     encCountA = 0;
     return;
   }
-  //if (wheelTurnCount == 10)
-  //  wheelTurnCount = 0;
-  if ( wheelTurnCount >= wheelTurnRequired ) {
+
+  if ( wheelTurnCount > wheelTurnRequired - 1 ) { // wheel reached the distance wheelTurnCount start from 0 so -1 required
     robStop();
     wheelTurnCount = 0;
-    wheelTurnRequired = -2;
+    wheelTurnRequired = 0;
     return;
-    // prevDirection = "sp";
-  }
- 
-  if ((encCountA >= turnTickCount) && (mode == "turn")) {       // for rotation, align the robot's heading with moving direction's bearing
-    robStop();
-    turnTickCount = 0;
-    wheelTurnRequired = -3;
-    mode = "---";
   }
 
-  // stop if distance < 50 cm in all ultrasinc sensors !!
-  // sensorReading();
-   // if (USDistaneLeft > 50) {
-    // robStop();
-    //}
+  Serial.print("encCountA: "); Serial.println(encCountA);
+  Serial.print("wheelTurnCount: "); Serial.println(wheelTurnCount);
+
+  USDistaneLeft = USSensor(Trig_pinL, Echo_pinL);
+  if ( USDistaneLeft < 20 )  //100 cm
+  {
+    digitalWrite(PWMA_pin, 0); digitalWrite(PWMB_pin, 0);
+    suddenStop = true;
+    Serial.println(">>> BLOCK !!!");
+    encCountA = encCountA - 5;  // comensate one stop
+    return;
+  }
 
 }  // end interupt function
 

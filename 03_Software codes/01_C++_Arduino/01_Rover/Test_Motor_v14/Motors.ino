@@ -22,7 +22,7 @@ void testMotor()
 
 void robStart() {
   Serial.println("START start");
-  robDirection = "st";
+  robDirection = "start";
   digitalWrite(motDIR_pin_A1, HIGH);  // set direction for forward
   digitalWrite(motDIR_pin_A2, LOW);   // set direction for forward
   digitalWrite(motDIR_pin_B1, HIGH);  // set direction for forward
@@ -39,7 +39,7 @@ void robForward(int newSpeed) {
   //  if (startMotor == true) {   // new // other vise the motor in 'stop'/break condiction and shoudn't start till 'robStart'
   Serial.println("FORWARD start");
   constrain(newSpeed, 0, 255);
-  robDirection = "fo";
+  robDirection = "forward";
   //  if (robDirection != prevDirection) { // the previouse was the same, then no stopping required. Only if direction changed !
   //    Serial.println("New FORWARD");
   //    accelerate(oldSpeed , 0); // from actual to zero. Change direction
@@ -62,7 +62,7 @@ void robBackward(int newSpeed) {
   //  if (startMotor == true) {   // new // other vise the motor in 'stop'/break condiction and shoudn't start till 'robStart'
   Serial.println("BACKWARD start");
   constrain(newSpeed, 0, 255);
-  robDirection = "ba";
+  robDirection = "backward";
   //    if (robDirection != prevDirection) { // the previouse was the same, then no stopping required. Only if direction chanheg !
   //      Serial.println("set BACKWARD dir");
   //      accelerate(newSpeed , 0); // from actual to zero. Change direation
@@ -85,7 +85,7 @@ void robLeft(int newSpeed) {
   //  if (startMotor == true) {   // new // other vise the motor in 'stop'/break condiction and shoudn't start till 'robStart'
   Serial.println("LEFT start");
   constrain(newSpeed, 0, 255);
-  robDirection = "le";
+  robDirection = "left";
   //    if (robDirection != prevDirection) { // the previouse was the same, then no stopping required. Only if direction chanheg !
   //      accelerate(newSpeed , 0); // from ancual to zero. Chage direation
   digitalWrite(motDIR_pin_A1, HIGH);
@@ -106,7 +106,7 @@ void robRight(int newSpeed) {
   //  if (startMotor == true) {   // new // other vise the motor in 'stop'/break condiction and shoudn't start till 'robStart'
   Serial.println("RIGHT start");
   constrain(newSpeed, 0, 255);
-  robDirection = "ri";
+  robDirection = "right";
   //    if (r/obDirection != prevDirection) { // the previouse was the same, then no stopping required. Only if direction chanheg !
   //      accelerate(PWM_speed , 0); // from ancual to zero. Chage direation
   digitalWrite(motDIR_pin_A1, LOW);
@@ -125,15 +125,14 @@ void robRight(int newSpeed) {
 
 void robHold() {                // this is just reduce the speed to 0, but no BREAK on. Like ball coming out of pictrue but in back, so can start immediatly 'automatically'.
   Serial.println("HOLD start");
-  robDirection = "ho";
+  robDirection = "hold";
   accelerate(oldSpeed, 0);  // PWM_speed, from actual speed to 0
   PWM_speed = 0;            // just save the actual speed for futher use //this can be deleted, becuse accelerate will do
   prevDirection = robDirection;
 }
 
 void robStop() {
-  Serial.println("STOP start");
-  robDirection = "sp";
+  Serial.println("STOP start ---");
   //  accelerate(oldSpeed , 0); // PWM_speed, from anctual to 0 pwm.
   digitalWrite(motDIR_pin_A1, LOW);  // BREAK to GND ; HIGH = Break to VCC
   digitalWrite(motDIR_pin_A2, LOW);  // BREAK to GND ; HIGH = Break to VCC
@@ -141,11 +140,13 @@ void robStop() {
   digitalWrite(motDIR_pin_B2, LOW);  // BREAK to GND ; HIGH = Break to VCC
   analogWrite(PWMA_pin, 0);
   analogWrite(PWMB_pin, 0);
+ // delay(2000); //to full stopp, so the encoder not turning at all
 
-  // prevDirection = robDirection;
+  prevDirection = robDirection; Serial.print(">>> prevDirection in 'robStop': ");  Serial.println(prevDirection);
+  robDirection = "stop";  // !!!!!!!!!!!
   //  PWM_speed = 0;              // just save the actual speed for futher use
   //  startMotor  = false;          //Stop other directions until unless not started with 'robStart' again
-  Serial.println("Stopped ----");
+  Serial.println("--- Stopped");
 }
 
 // ------------- Axulury functions:

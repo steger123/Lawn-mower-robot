@@ -63,14 +63,23 @@ boolean raining() {
   // map the sensor range (four options):
   // ex: 'long int map(long int, long int, long int, long int, long int)'
   int range = map(sensorReading, 0, 1024, 0, 3);
-  switch (range) {
-    case 0:    // Sensor getting wet
-      return true;
-      break;
-    case 1:    // Sensor dry
-      return false;
-      break;
+  Serial.print("Rain sensorReading: "); Serial.println(sensorReading);
+  Serial.print("Rain range: "); Serial.println(range);
+  if (sensorReading < 1000) {
+    return true;
   }
+  else {
+    return false;
+  }
+  /* switch (range) {
+     case 1:    // Sensor getting wet 1 small drop sensorReading = 563
+       return true;
+       break;
+     case 2:    // Sensor dry sensorReading = 1023
+       return false;
+       break;
+
+    }*/
 }
 
 // *************************************************************
@@ -155,7 +164,7 @@ long currentADS1115() { //MA Charge Plus, Discharge Minus
   // return long(lastSensedCurrent/1000);  // Ampere long
 }
 
-long currentMy(){
+long currentMy() {
   unsigned int x = 0;
   float AcsValue = 0.0, Samples = 0.0, AvgAcs = 0.0, AcsValueF = 0.0;
   ads.setGain(0);
@@ -166,8 +175,8 @@ long currentMy(){
   float VCCvolt = val_2 * f; // convert to voltage = half of the Vcc. (5-5.2V) because of rsistor deivider
 
   //AcsValueF = -1000 * ((VCCvolt - ADSvolt) / 0.066); //mA ; 66mV change in Output voltage from initial state represents 1-Ampere change in Input current
-   AcsValueF = 1000 * ((ADSvolt - 2.6032) / 0.066); //mA ; 66mV 2.6031 change in Output voltage from initial state represents 1-Ampere change in Input current
- // AcsValueF = 1000 * ((ADSvolt - VCCvolt) / 0.066); //mA ; // -2.6081
+  AcsValueF = 1000 * ((ADSvolt - 2.6072) / 0.066); //mA ; 66mV 2.6031 change in Output voltage from initial state represents 1-Ampere change in Input current
+  // AcsValueF = 1000 * ((ADSvolt - VCCvolt) / 0.066); //mA ; // -2.6081
 
   for (int x = 0; x < 10; x++) // 150 sampels
   { //Get 150 samples
@@ -202,7 +211,7 @@ long currentMy(){
 }
 
 // *************************************************************
-int button(int buttonPin){
+int button(int buttonPin) {
   int pushValue = analogRead(buttonPin);
   Serial.print("Push value: (>850 no btn pushed)"); Serial.println(pushValue);
   if ( pushValue < 164 )  //Button1 -> 1 = MOTOR test start; pushValue = 0
